@@ -2,7 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    background-color: black;
-    color: azure;
+body {
+  background-color: black;
+  color: azure;
+}
+.header {
+  background-color: #15161a;
+}
+.cards {
+  background-color: rgb(31, 31, 31);
+  border-radius: 1rem;
 }
