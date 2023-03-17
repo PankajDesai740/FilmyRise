@@ -3,6 +3,7 @@ import { Audio } from 'react-loader-spinner';
 import ReactStars from 'react-stars';
 import { getDocs } from 'firebase/firestore';
 import { moviesRef } from '../firebase/firebase';
+import { Link } from 'react-router-dom';
 
 
 const Cards = () => {
@@ -16,7 +17,7 @@ const Cards = () => {
     const _data = await getDocs(moviesRef);
     console.log(_data);
     _data.forEach((doc => {
-      setData((prev) => [...prev,doc.data()])
+      setData((prev) => [...prev,{...(doc.data()), id:doc.id}])
     }))
 
     setLoading(false);
@@ -32,7 +33,7 @@ const Cards = () => {
       loading ? <div className='w-full flex justify-center items-center h-96'><Audio height={40} color="white"/> </div>:
         data.map((e, i) => {
           return (
-            <div key={i} className='cards text-sm font-medium shadow-lg p-2 cursor-pointer
+          <Link to={`/detail/${e.id}`} > <div key={i} className='cards text-sm font-medium shadow-lg p-2 cursor-pointer
          hover:-translate-y-3 mt-6 transition-all duration-700'>
               <img className='h-60 w-36 md:h-72 md:w-52 ' src={e.image} alt="" />
               <h1> <span className='text-blue-200'>Name:</span>{e.name}</h1>
@@ -46,6 +47,7 @@ const Cards = () => {
               </h1>
               <h1><span className='text-blue-200'>Year:</span>{e.year}</h1>
             </div>
+            </Link>
           )
         })
       }
