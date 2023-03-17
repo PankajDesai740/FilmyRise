@@ -27,14 +27,14 @@ const Cards = () => {
 
 
   return (
-    <div className='flex flex-wrap justify-between  p3 mt-3'>
+    <div className='flex flex-wrap justify-betweeen gap-4 ml-4 mr-1 md:gap-8  px-3 mt-2'>
       { 
       loading ? <div className='w-full flex justify-center items-center h-96'><Audio height={40} color="white"/> </div>:
         data.map((e, i) => {
           return (
-            <div key={i} className='cards text-sm font-bold shadow-lg p-2 cursor-pointer
+            <div key={i} className='cards text-sm font-medium shadow-lg p-2 cursor-pointer
          hover:-translate-y-3 mt-6 transition-all duration-700'>
-              <img className='h-96 w-auto' src={e.image} alt="" />
+              <img className='h-60 w-36 md:h-72 md:w-52 ' src={e.image} alt="" />
               <h1> <span className='text-blue-200'>Name:</span>{e.name}</h1>
               <h1 className='flex items-center mr-1'><span className='text-blue-200'>Rating: </span>
                 < ReactStars
