@@ -4,6 +4,7 @@ import { getFirestore, collection } from 'firebase/firestore';
 
 
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyCH_GlDvdQ_3x2iRwgP3bUMNWEInisG2Wg",
     authDomain: "filmyrise.firebaseapp.com",
@@ -16,5 +17,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const moviesRef = collection(db, "movies");
+export const reviewsRef = collection(db, "reviews");
 
 export default app;

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { TailSpin } from 'react-loader-spinner';
-import {addDoc} from "firebase/firestore";
+import { addDoc } from "firebase/firestore";
 import { moviesRef } from '../firebase/firebase';
 import swal from 'sweetalert';
 
 const AddMovie = () => {
 
     const [form, setForm] = useState({
-        title: " ",
+        name: " ",
         year: " ",
         desc: " ",
         image: " "
@@ -15,25 +15,32 @@ const AddMovie = () => {
 
     const [loading, setLoading] = useState(false);
     const addMovie = async () => {
-      try{
+        try {
             setLoading(true);
-            await addDoc(moviesRef,form);
+            await addDoc(moviesRef, form);
             swal({
-                title:"Successfully Upload",
-                icon:"success",
-                button:false,
-                timer:3000
+                title: "Successfully Upload",
+                icon: "success",
+                button: false,
+                timer: 3000
             })
-           
-      }catch(err){
-        swal({
-            title:err,
-            icon:"error",
-            button:false,
-            timer:3000
-        })
-      }
-      setLoading(false);   
+
+            setForm({
+                name: " ",
+                year: " ",
+                desc: " ",
+                image: " "
+            })
+
+        } catch (err) {
+            swal({
+                title: err,
+                icon: "error",
+                button: false,
+                timer: 3000
+            })
+        }
+        setLoading(false);
     }
 
     return (
@@ -48,10 +55,10 @@ const AddMovie = () => {
                         <div class="flex flex-wrap -m-2">
                             <div class="p-2 w-1/2">
                                 <div class="relative">
-                                    <label for="name" class="leading-7 text-sm text-gray-300">Title</label>
+                                    <label for="name" class="leading-7 text-sm text-gray-300">Name</label>
                                     <input
-                                        value={form.title}
-                                        onChange={(e) => setForm({ ...form, title: e.target.value })}
+                                        value={form.name}
+                                        onChange={(e) => setForm({ ...form, name: e.target.value })}
                                         type="text"
                                         id="name"
                                         name="name"
