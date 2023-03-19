@@ -103,10 +103,10 @@ const Review = ({ id, prevRating, userRated }) => {
                         {
                             data.map((e,i) => {
                                 return(
-                                    <div className=' p-2 w-full mt-2 border-b border-gray-700' key={i}>
-                                       <div className='flex'> 
-                                       <p className='text-blue-400'> {e.name}</p>
-                                       <p className='ml-2 text-xl'> {new Date(e.timestamp).toLocaleString()}</p>
+                                    <div className=' p-2 w-full   mt-2 border-b border-gray-700 header ' key={i}>
+                                       <div className='flex items-center capitalize'> 
+                                       <p className='text-blue-400 '> {e.name}</p>
+                                       <p className='ml-2 text-xs'> ({new Date(e.timestamp).toLocaleString()})</p>
                                        </div>
                                        < ReactStars
                                           
@@ -117,7 +117,7 @@ const Review = ({ id, prevRating, userRated }) => {
                                             
                                            
                                          />
-                                       <p>{e.thought}</p>
+                                       <p className='capitalize text-xm'>{e.thought}</p>
                                       
                                        </div>
                                 )

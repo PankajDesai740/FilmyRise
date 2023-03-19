@@ -10,7 +10,9 @@ const AddMovie = () => {
         name: " ",
         year: " ",
         desc: " ",
-        image: " "
+        image: " ",
+        rating:0,
+        rated:0
     });
 
     const [loading, setLoading] = useState(false);
