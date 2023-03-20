@@ -6,7 +6,7 @@ import { getFirestore, collection } from 'firebase/firestore';
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCH_GlDvdQ_3x2iRwgP3bUMNWEInisG2Wg",
+    apiKey: process.env.REACT_APP_API_KEY,
     authDomain: "filmyrise.firebaseapp.com",
     projectId: "filmyrise",
     storageBucket: "filmyrise.appspot.com",
