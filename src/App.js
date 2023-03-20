@@ -7,7 +7,7 @@ import Header from './components/Header';
 import Detail from './components/Detail';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import { createContext , useContext} from 'react';
+import { createContext } from 'react';
 
 const AppState = createContext();
 
