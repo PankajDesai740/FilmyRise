@@ -16,6 +16,7 @@ const Review = ({ id, prevRating, userRated }) => {
     const [reviewsLoading, setReviewsLoading] = useState(false);
     const [form, setForm] = useState("");
     const [data, setData] = useState([]);
+    const [newAdded, setNewadded] = useState(0);
 
     const sendReview = async () => {
         setLoading(true);
@@ -40,6 +41,7 @@ const Review = ({ id, prevRating, userRated }) => {
             })
             setRating(0);
             setForm("");
+            setNewadded(newAdded + 1);
             swal({
                 title: "Reviews Posted Successfully",
                 icon: "success",
@@ -64,6 +66,7 @@ const Review = ({ id, prevRating, userRated }) => {
     useEffect(() => {
         async function getData() {
             setReviewsLoading(true);
+            setData([]);
             let que = query(reviewsRef, where('movieid', '==', id));
             const querySnapshot = await getDocs(que);
 
@@ -74,7 +77,7 @@ const Review = ({ id, prevRating, userRated }) => {
             setReviewsLoading(false);
         }
         getData();
-    }, [])
+    }, [newAdded])
 
 
     return (
